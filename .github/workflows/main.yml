@@ -27,7 +27,7 @@
          with:
           context: ./frontend
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/frontendoi:latest
 
             #4. connect to ec2 and deploy
 
@@ -38,14 +38,14 @@
            username: ubuntu
            key: ${{ secrets.EC2_SSH_KEY }}
            script: 
-             docker pull ${{ secrets.DOCKER_USERNAME }}/frontend:latest
-             docker stop frontend || true
-             docker rm frontend || true
+             docker pull ${{ secrets.DOCKER_USERNAME }}/frontendoi:latest
+             docker stop frontendoi || true
+             docker rm frontendoi || true
              docker run -d \
-                --name frontend \
+                --name frontendoi \
                 --restart unless-stopped \
                 -p 3002:5173 \
-                ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+                ${{ secrets.DOCKER_USERNAME }}/frontendoi:latest
 
      
  
