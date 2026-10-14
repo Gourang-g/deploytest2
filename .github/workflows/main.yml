@@ -1,4 +1,4 @@
-   name: Frontend Deployment
+   name: Frontend Deployment Test
    on:
     push:
       branches:
@@ -44,7 +44,7 @@
              docker run -d \
                 --name frontend \
                 --restart unless-stopped \
-                -p 5173:5173 \
+                -p 3002:5173 \
                 ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
      
